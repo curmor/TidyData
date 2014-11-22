@@ -45,9 +45,7 @@ index_features <- grep("-mean\\(\\)|-std\\(\\)", features$feat_name)
 x <- x[, index_features] 
 names(x) <- gsub("\\(|\\)", "", (features[index_features, 2]))
 
-
-
-## Pt 4. Uses descriptive activity names to name the activities in the data set
+## Pt 4. Uses descriptive activity names to name the activities in the data set.
 ## and appropriately labels the data set with descriptive activity names:
 acts <- read.table("./UCI HAR Dataset/activity_labels.txt")
 names(acts) <- c('act_id', 'act_name')
@@ -59,7 +57,7 @@ names(s) <- "Subject"
 ## Combines the data_table by columns
 tidySet <- cbind(s, y, x)
 
-# Pt 5. Creates a second, independent tidy data set with the average of each variable for 
+# Pt 5. creates a second, independent tidy data set with the average of each variable for 
 ##  each activity and each subject
 p <- tidySet[, 3:dim(tidySet)[2]] 
 tidyDataAvSet <- aggregate(p,list(tidySet$Subject, tidySet$Activity), mean)
