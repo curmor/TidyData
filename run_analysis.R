@@ -62,7 +62,7 @@ tidySet <- cbind(s, y, x)
 # Pt 5. Creates a second, independent tidy data set with the average of each variable for 
 ##  each activity and each subject
 p <- tidySet[, 3:dim(tidySet)[2]] 
-tidyDataAvSet <- aggregate(p,list(tidyDataSet$Subject, tidyDataSet$Activity), mean)
+tidyDataAvSet <- aggregate(p,list(tidySet$Subject, tidySet$Activity), mean)
 
 names(tidyDataAvSet)[1] <- "Subject"
 names(tidyDataAvSet)[2] <- "Activity"
