@@ -22,16 +22,16 @@ if (file.exists(dFile) == FALSE) {
 }
 
 ## Pt 1. Merges the training and the test sets to create one data set.
-train_x <- read.table("./UCI HAR Dataset/train/X_train.txt", header = FALSE)
-test_X <- read.table("./UCI HAR Dataset/test/X_test.txt", header = FALSE)
-train_y <- read.table("./UCI HAR Dataset/train/y_train.txt", header = FALSE)
-test_y <- read.table("./UCI HAR Dataset/test/y_test.txt", header = FALSE)
+X_train <- read.table("./UCI HAR Dataset/train/X_train.txt", header = FALSE)
+X_test <- read.table("./UCI HAR Dataset/test/X_test.txt", header = FALSE)
+y_train <- read.table("./UCI HAR Dataset/train/y_train.txt", header = FALSE)
+y_test <- read.table("./UCI HAR Dataset/test/y_test.txt", header = FALSE)
 subj_train <- read.table("./UCI HAR Dataset/train/subject_train.txt", header = FALSE)
 subj_test <- read.table("./UCI HAR Dataset/test/subject_test.txt", header = FALSE)
 
 ## Combines train and test into one data_table by rows
-x <- rbind(train_x, test_X)
-y <- rbind(train_y, test_y)
+x <- rbind(X_train, X_test)
+y <- rbind(y_train, Ytest)
 s <- rbind(subj_train, subj_test)
 
 ## Pt 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
