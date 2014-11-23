@@ -31,7 +31,7 @@ subj_test <- read.table("./UCI HAR Dataset/test/subject_test.txt", header = FALS
 
 ## Combines train and test into one data_table by rows
 x <- rbind(X_train, X_test)
-y <- rbind(y_train, Ytest)
+y <- rbind(y_train, y_test)
 s <- rbind(subj_train, subj_test)
 
 ## Pt 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
@@ -41,7 +41,7 @@ feat <- read.table("./UCI HAR Dataset/features.txt")
 names(feat) <- c('feat_id', 'feat_name')
 ## Searches for mean or standard deviation arguments in each element of character vector
 ## and replaces all string feature matches
-index_features <- grep("-mean\\(\\)|-std\\(\\)", features$feat_name) 
+index_feat <- grep("-mean\\(\\)|-std\\(\\)", feat$feat_name) 
 x <- x[, index_features] 
 names(x) <- gsub("\\(|\\)", "", (features[index_features, 2]))
 
